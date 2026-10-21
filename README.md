@@ -116,3 +116,11 @@ per-asset digests are recorded in `MANIFEST.json` and `DESTINATIONS.json`.
 - **110 training labels may be premature.** Rows whose target week fell after the first evaluation
   prediction date were excluded from the replication's training set; the packaged split retains them.
 - **Not an official WHO product**, and not endorsed or reviewed by WHO.
+
+<!-- dataset-factory:links -->
+**Dataset Factory · v2026.10**
+
+[Dataset website](https://earino.github.io/who-flunet-activity-exceedance/versions/v2026.10/) · [GitHub release](https://github.com/earino/who-flunet-activity-exceedance/releases/tag/v2026.10) · [Hugging Face](https://huggingface.co/datasets/earino/who-flunet-activity-exceedance/tree/v2026.10) · [Catalogue](https://earino.github.io/dataset-factory-site/)
+
+Artifact: b1323a27fa02eb79de5fbb12c54068699ae15b3d44a9488942fd17ef0a4caffa
+<!-- /dataset-factory:links -->
