@@ -139,7 +139,7 @@
     "RELEASE_NOTES.md": "29ca18646c4cad6769f6285593f4f289b99ff4acb81f647e96e753aeda124e8d",
     "REPRODUCE.md": "452ef2a7c67cbb88bb09819d6427eb9663d281ffd77261bb94477010f936feba",
     "SHA256SUMS": "de4df28774da5a4673a5b19b8b143b92d22c384dbd36be7d4803b65e3e72f58c",
-    "VERIFICATION.md": "25af79e9d0cca9fbdeec25e574a386d14c423f787d0083247069b5c1bc2966f6",
+    "VERIFICATION.md": "8a42795dd0c9e4f0f366d3ff75ab30ee91d507e8ad36fc83363be256b4bba122",
     "baseline/README.md": "48bf43d62fee48d323ecb843532ceb7bd756af76cc5112f158f055931bac58a7",
     "baseline/reproduce_baseline.sh": "5ec3409b070a57ecba042e02bc7ee65cb11ad90504fd5a961a2d64deb55b49b3",
     "baseline/train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",

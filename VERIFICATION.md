@@ -43,7 +43,9 @@ job `flunet-002` (worker 171454743) and preserved in staging release 418940777.
 
 ## 3. Runner-contract baseline
 
-Job `flunet-baseline-001` (worker 171493937, cx23/hel1, destroyed 02:28:57Z). It **fetched** the
+Job `flunet-baseline-001` (worker 171493937, cx23/hel1; the job ledger records the server's
+deletion at 2026-10-21T02:32:29Z, which is the authoritative time - an earlier note said
+02:28:57Z and this is corrected against the ledger). It **fetched** the
 five released files from staging (6,576,498 bytes, every sha256 verified on arrival, 0 failures) -
 it did not rebuild them - re-accepted them through the gate (`ACCEPTED ... b1323a27fa02eb79`),
 materialized the runner workdir (public train+eval only; the holdout was not copied), and ran the
