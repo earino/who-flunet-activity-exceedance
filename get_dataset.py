@@ -67,14 +67,41 @@ def sha256_of(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _stream(url: str, target: Path, headers: dict | None = None) -> None:
+    request = urllib.request.Request(url, headers=headers or {})
+    with urllib.request.urlopen(request, timeout=120) as response, target.open("wb") as out:
+        while chunk := response.read(1 << 20):
+            out.write(chunk)
+
+
+def _asset_id(name: str, token: str) -> int:
+    """Resolve a release asset id through the API.
+
+    The `github.com/<repo>/releases/download/...` URL does not serve assets of a **private**
+    repository to a token-authenticated client - it answers 404 - so a private download has to go
+    through the API's asset endpoint, which returns the bytes with
+    `Accept: application/octet-stream`. Measured 2026-10-21 on this release.
+    """
+    meta = f"https://api.github.com/repos/{REPO}/releases/tags/{TAG}"
+    request = urllib.request.Request(meta, headers={"Authorization": f"Bearer {token}",
+                                                    "Accept": "application/vnd.github+json"})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        release = json.loads(response.read().decode())
+    for asset in release.get("assets", []):
+        if asset.get("name") == name:
+            return asset["id"]
+    raise SystemExit(f"{name}: not present in release {TAG} of {REPO}")
+
+
 def fetch(name: str, target: Path, token: str | None) -> None:
-    request = urllib.request.Request(URL.format(repo=REPO, tag=TAG, name=name))
-    if token:
-        request.add_header("Authorization", f"Bearer {token}")
     try:
-        with urllib.request.urlopen(request, timeout=120) as response, target.open("wb") as out:
-            while chunk := response.read(1 << 20):
-                out.write(chunk)
+        if token:
+            asset_id = _asset_id(name, token)
+            _stream(f"https://api.github.com/repos/{REPO}/releases/assets/{asset_id}", target,
+                    {"Authorization": f"Bearer {token}",
+                     "Accept": "application/octet-stream"})
+        else:
+            _stream(URL.format(repo=REPO, tag=TAG, name=name), target)
     except urllib.error.HTTPError as exc:
         raise SystemExit(f"{name}: HTTP {exc.code} - the release may be private; set GITHUB_TOKEN")
 
