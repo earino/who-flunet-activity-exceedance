@@ -3,7 +3,7 @@
   "release_version": "2026.10",
   "release_tag": "v2026.10",
   "repository": "https://github.com/earino/who-flunet-activity-exceedance",
-  "visibility": "private (publication requires explicit authorisation)",
+  "visibility": "public",
   "artifact_version": "b1323a27fa02eb79de5fbb12c54068699ae15b3d44a9488942fd17ef0a4caffa",
   "artifact_job": "flunet-002",
   "staging_release": 418940777,
@@ -226,7 +226,7 @@
     "gate_version": "1.3.0",
     "ok": true,
     "failed_checks": [],
-    "artifact_version": "b1323a27fa02eb79",
+    "artifact_version": "b1323a27fa02eb79de5fbb12c54068699ae15b3d44a9488942fd17ef0a4caffa",
     "report": "staging release 418940777 asset qualification-who-flunet-activity-exceedance.json",
     "accepted_on_coordinator": "qualify_dataset.py --accept -> ACCEPTED (2026-10-20)",
     "splits": {
@@ -248,7 +248,8 @@
         "positive_rate": 0.406586,
         "distinct_events": 422
       }
-    }
+    },
+    "result": "PASSED - gate 1.3.0, 32/32 checks, 0 failed, on the full artifact on the worker; staging release 418940777; hand-off --accept ACCEPTED (2026-10-20)"
   },
   "baseline": {
     "job": "flunet-baseline-001",
@@ -306,8 +307,8 @@
     "scope": "baseline only, through the runner's own contract. No agent or harness comparison was run, and none is implied."
   },
   "scope": "One baseline through the runner's training and validation contract. No agent or harness comparison was run and none is implied.",
-  "published": false,
-  "publication_note": "Prepared for human review. Nothing here has been published.",
+  "published": true,
+  "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-21T10:19:36Z. Data files, tag and artifact version are unchanged by publication.",
   "licenses": {
     "policy_version": "2026-09-19",
     "decided": "2026-10-21",
